@@ -1,0 +1,19 @@
+---
+- name: create
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: create
+      vmware_guest:
+        hostname: vc7.bgl1.global.tslabs.hpecorp.net
+        username: admautomate@vsphere.local
+        password: Password!234
+        validate_certs: false
+        name: test3
+        template: ubuntu
+        datacenter: BGL
+        datastore: DEV-STORAGE
+        folder: HCENext
+        state: powered-on
+        wait_for_ip_address: no
